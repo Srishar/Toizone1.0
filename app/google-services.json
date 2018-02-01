@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "702204963523",
+    "firebase_url": "https://ptlocator.firebaseio.com",
+    "project_id": "ptlocator",
+    "storage_bucket": "ptlocator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702204963523:android:4369f43680b46090",
+        "android_client_info": {
+          "package_name": "com.example.arvind.amaps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702204963523-h2kg1bilkpvhjiv362r5ue6ktelr5t8c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR1AusTramfExw7ThGJWqBkloiQyNC1lM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702204963523:android:c7f13106fb0c9293",
+        "android_client_info": {
+          "package_name": "com.example.arvind.detailsui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702204963523-h2kg1bilkpvhjiv362r5ue6ktelr5t8c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR1AusTramfExw7ThGJWqBkloiQyNC1lM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

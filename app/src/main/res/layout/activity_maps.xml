@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:elevation="10dp"
+        android:background="@drawable/roundedbar"
+        >
+
+        <ImageView
+            android:id="@+id/searchicon"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/ic_action_name"
+            />
+
+        <AutoCompleteTextView
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/searchicon"
+            android:layout_centerVertical="true"
+            android:hint="Enter a place to search"
+            android:textColorHint="#aba6a6"
+            android:textColor="#000"
+
+            android:textSize="17sp"
+            android:id ="@+id/input"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            />
+    </RelativeLayout>
+
+
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.mr.toizone.MapsActivity" />
+
+    <ImageView
+        android:id="@+id/gps"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/rel"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerCrop"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/gps"
+        />
+
+    <ImageView
+        android:id="@+id/Restroom"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/gps"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerCrop"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/toilet"
+        />
+
+    <ImageView
+        android:id="@+id/showDirections"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/Restroom"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerCrop"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/directions"
+        />
+
+
+
+
+
+</RelativeLayout>
