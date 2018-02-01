@@ -305,7 +305,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 l = new ArrayList<>();
 
                 DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-                DatabaseReference raipurRef = rootRef.child("Raipur");
+                DatabaseReference raipurRef = rootRef.child("raipur");
                 ValueEventListener eventListener = new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -333,25 +333,32 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 dist = dist * 60;
                                 dist = dist * 1852;
                                 map.put(dist, lst.get(i));
+                            Log.v("TAG","MSGTESTMAP:DISTANCE IS:"+dist);
 
                         }
 
                         for (Map.Entry<Double, Place> entry : map.entrySet()) {
+
+                            Log.v("TAG","MSGTESTMAP:INSIDEFOR");
 
                             System.out.println("Distance : " + entry.getKey() + "\tLat: " + entry.getValue().lat + "\tLong : " + entry.getValue().lon + "\tTitle :" + entry.getValue().title);
 
                         }
 
                         // nearest PT to our current location
+                         if(!map.isEmpty()) {
+                             Map.Entry<Double, Place> entry = map.entrySet().iterator().next();
+                             System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
 
-                        Map.Entry<Double, Place> entry = map.entrySet().iterator().next();
-                        System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+                             nearestLatLng = new LatLng(entry.getValue().lat, entry.getValue().lon);
+                             LatLng currentLatLng = new LatLng(currentLat, currentLon);
+                             getRouteToNearestMarker(currentLatLng, nearestLatLng);
 
-                        nearestLatLng = new LatLng(entry.getValue().lat, entry.getValue().lon);
-                        LatLng currentLatLng = new LatLng(currentLat, currentLon);
-                        getRouteToNearestMarker(currentLatLng, nearestLatLng);
+                             Log.v("TAG","MSGTESTMAP:INSIDE");
 
-                        moveCamera(nearestLatLng, DEFAULT_ZOOM, title);
+                             moveCamera(nearestLatLng, DEFAULT_ZOOM, title);
+
+                         }
 
                     }
 
@@ -548,15 +555,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     for (com.google.firebase.database.DataSnapshot ds : dataSnapshot.getChildren()){
-                        Log.v("TAG", "MSGIS:" + ds.getKey());
+                       // Log.v("TAG", "MSGIS:" + ds.getKey());
                     com.google.firebase.database.DataSnapshot ds2 = ds.child("details");
                     String lat1 = (String) ds2.child("lat").getValue();
                     double lat = Double.parseDouble(lat1);
                     String lon1 = (String) ds2.child("lng").getValue();
                     double lon = Double.parseDouble(lon1);
                     String title = (String) ds2.child("name").getValue();
-                    Log.v("TAG", "MASTEXT:" + title + lat1 + lon1);
-                    Log.d("TAG", lat + " /n " + title + " /n " + lon);
+                  //  Log.v("TAG", "MASTEXT:" + title + lat1 + lon1);
+                   // Log.d("TAG", lat + " /n " + title + " /n " + lon);
                     // Add a marker in Sydney and move the camera
                     LatLng Pt = new LatLng(lat, lon);
                     //Log.d(TAG,Integer.toString(placesList.size()));
