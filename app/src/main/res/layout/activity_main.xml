@@ -249,6 +249,12 @@
                     android:textSize="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+                <CheckedTextView
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="250dp"
+                    android:id="@+id/splfeatures"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView

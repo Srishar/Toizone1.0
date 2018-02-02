@@ -14,6 +14,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,9 +57,10 @@ public class MainActivity extends AppCompatActivity {
     TextView ratdisp;
     TextView ratedisp,ratendisp;
     CircleButton went;
-    String deviceid,phone,gone;
+    String deviceid,phone,gone,spl;
     ImageView coverpic;
     BarChart barChart;
+    CheckedTextView splfeatures;
 
     private Firebase mref, mref1,mref2;
     private StorageReference mstore;
@@ -90,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         went = (CircleButton) findViewById(R.id.went);
         coverpic = (ImageView) findViewById(R.id.coverpic);
         barChart=(BarChart)findViewById(R.id.graph);
+        splfeatures=(CheckedTextView)findViewById(R.id.splfeatures);
 
         deviceid = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
 
@@ -121,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
                 phno.setText(phone);
                 String pri = map.get("price");
                 pricedisp.setText(pri);
+                String spl = map.get("add");
+                splfeatures.setText(spl);
                 String add = map.get("address");
                 addisp.setText(add);
                 String rat = map.get("rating");

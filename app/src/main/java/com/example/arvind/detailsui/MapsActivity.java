@@ -276,7 +276,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     double lng = nearestLatLng.longitude;
 
                     String format = "geo:0,0?q=" + lat + "," + lng + "( Location title)";
-
                     Uri uri = Uri.parse(format);
 
 

@@ -49,7 +49,7 @@ public class Review extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
 
-         link=getIntent().getExtras().getString("ptlink");
+        link=getIntent().getExtras().getString("ptlink");
 
 
 
@@ -85,7 +85,7 @@ public class Review extends AppCompatActivity {
                 map1 = dataSnapshot.getValue(Map.class);
 
                 String rat=map1.get("rating");
-                 ratt1=Double.parseDouble(rat);
+                ratt1=Double.parseDouble(rat);
             }
             @Override
             public void onCancelled(FirebaseError firebaseError) {
@@ -119,68 +119,79 @@ public class Review extends AppCompatActivity {
                 child3.setValue(dateval);
                 if(time.equals("12AM-04AM"))
                 {
-                     cnt=countcalc("00");
-                    ++cnt;
-                    timeref.child("00").setValue(cnt);
+                 //   cnt=countcalc("00");
+                    //++cnt;
+                    countcalc("00");
+                    //timeref.child("00").setValue(cnt);
                 }
                 else if(time.equals("04AM-06AM"))
                 {
-                     cnt=countcalc("04");
-                    ++cnt;
-                    timeref.child("04").setValue(cnt);
+                   // cnt=countcalc("04");
+                    //++cnt;
+                    countcalc("04");
+                    //timeref.child("04").setValue(cnt);
                 }
                 else if(time.equals("06AM-07AM"))
                 {
-                     cnt=countcalc("06");
-                    ++cnt;
-                    timeref.child("06").setValue(cnt);
+                 //   cnt=countcalc("06");
+                  //  ++cnt;
+                    countcalc("06");
+                    // timeref.child("06").setValue(cnt);
                 }
                 else if(time.equals("07AM-08AM"))
                 {
-                     cnt=countcalc("07");
-                    ++cnt;
-                    timeref.child("07").setValue(cnt);
+                   // cnt=countcalc("07");
+                    //++cnt;
+                    //timeref.child("07").setValue(cnt);
+                    countcalc("07");
                 }
                 else if(time.equals("08AM-09AM"))
                 {
-                     cnt=countcalc("08");
-                    ++cnt;
-                    timeref.child("08").setValue(cnt);
+                 //   cnt=countcalc("08");
+                    //++cnt;
+                    //timeref.child("08").setValue(cnt);
+                    countcalc("08");
                 }
                 else if(time.equals("09AM-10AM"))
                 {
-                     cnt=countcalc("09");
+                    countcalc("09");
                     Log.v("TAG","MSGSINFETCH:"+cnt);
-                    ++cnt;
+                 //   ++cnt;
                     //Firebase tempref=timeref.child("09");
                     //tempref.setValue(cnt);
-                   // timeref.child("09").setValue(cnt);
-                    setvaltime();
+                    // timeref.child("09").setValue(cnt);
+                   // setvaltime();
                 }
                 else if(time.equals("10AM-02PM"))
                 {
-                     cnt=countcalc("14");
-                    ++cnt;
-                    timeref.child("14").setValue(cnt);
+                   // cnt=countcalc("14");
+                    //++cnt;
+                    //timeref.child("14").setValue(cnt);
+                    countcalc("10");
                 }
                 else if(time.equals("02PM-06PM"))
                 {
-                     cnt=countcalc("18");
-                    ++cnt;
-                    timeref.child("18").setValue(cnt);
+                   // cnt=countcalc("18");
+                   // ++cnt;
+                   // timeref.child("18").setValue(cnt);
+                    countcalc("14");
                 }
                 else if(time.equals("06PM-08PM"))
                 {
-                     cnt=countcalc("20");
-                    ++cnt;
-                    timeref.child("20").setValue(cnt);
+                   // cnt=countcalc("20");
+                    //++cnt;
+                    //timeref.child("20").setValue(cnt);
+                    countcalc("18");
                 }
                 else if(time.equals("08PM-11PM"))
                 {
-                     cnt=countcalc("23");
-                    ++cnt;
-                    timeref.child("23").setValue(cnt);
+                   //
+                    // cnt=countcalc("23");
+                    //++cnt;
+                    //timeref.child("23").setValue(cnt);
+                    countcalc("20");
                 }
+
                 progressDialog1.dismiss();
                 Toast.makeText(getApplicationContext(),"Thanks for your review",Toast.LENGTH_LONG).show();
 
@@ -189,20 +200,20 @@ public class Review extends AppCompatActivity {
 
     }
 
-    public int countcalc(final String freq)
+    public void countcalc(final String freq)
     {
 
-
+/*
         timeref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map <String,Integer>map2;
                 map2 = dataSnapshot.getValue(Map.class);
 
-                 temp=map2.get(freq);
+                temp=map2.get(freq);
                 temp++;
                 Log.v("TAG","MSGSISCNT:"+temp);
-               // temp=Integer.parseInt(cnts);
+                // temp=Integer.parseInt(cnts);
             }
 
 
@@ -213,7 +224,26 @@ public class Review extends AppCompatActivity {
 
         });
 
-        return temp;
+        return temp;*/
+        timeref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map <String,Integer>map2;
+                map2 = dataSnapshot.getValue(Map.class);
+
+                temp=map2.get(freq);
+                temp++;
+                Log.v("TAG","MSGSISCNT:"+temp);
+                // temp=Integer.parseInt(cnts);
+
+                timeref.child(freq).setValue(temp);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
     }
     public void setvaltime()
     {
