@@ -326,7 +326,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 // Double lat = currentPosition.getLatitude();
                                 lon = currentPosition.getLongitude();
                                 theta = lon - longitude;
-                                dist = Math.sin(deg2rad(latitude)) * Math.sin(deg2rad(latitude)) + Math.cos(deg2rad(latitude)) * Math.cos(deg2rad(latitude)) * Math.cos(deg2rad(theta));
+                                dist = Math.sin(deg2rad(latitude)) * Math.sin(deg2rad(currentLat)) + Math.cos(deg2rad(latitude)) * Math.cos(deg2rad(currentLat)) * Math.cos(deg2rad(theta));
                                 dist = Math.acos(dist);
                                 dist = rad2deg(dist);
                                 dist = dist * 60;

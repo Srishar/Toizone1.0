@@ -191,6 +191,8 @@ public class Review extends AppCompatActivity {
                     //timeref.child("23").setValue(cnt);
                     countcalc("20");
                 }
+                else
+                Toast.makeText(getApplicationContext(),"invalid",Toast.LENGTH_SHORT).show();
 
                 progressDialog1.dismiss();
                 Toast.makeText(getApplicationContext(),"Thanks for your review",Toast.LENGTH_LONG).show();

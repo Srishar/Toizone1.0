@@ -31,7 +31,7 @@ public class ReviewDisplay extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_display);
-        link="Toilet 1";
+        link=getIntent().getExtras().getString("ptlink");
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

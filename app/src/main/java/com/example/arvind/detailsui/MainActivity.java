@@ -278,6 +278,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void seerev(View view) {
         Intent intent = new Intent(MainActivity.this, ReviewDisplay.class);
+        intent.putExtra("ptlink",link);
         startActivity(intent);
     }
 
@@ -324,13 +325,13 @@ public class MainActivity extends AppCompatActivity {
             {
                 num=r.nextInt(10000);
             }
-            StorageReference filepath=mstore.child("userpics").child("Toilet 1").child("file"+num);
+            StorageReference filepath=mstore.child("userpics").child(link).child("file"+num);
             filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     String duri =taskSnapshot.getDownloadUrl().toString();
 
-                    mref1=new Firebase("https://ptlocator.firebaseio.com/raipur/Toilet 1/Reviews/"+deviceid);
+                    mref1=new Firebase("https://ptlocator.firebaseio.com/raipur/"+link+"/Reviews/"+deviceid);
                     Firebase child=mref1.child("image");
                     child.setValue(duri);
 
